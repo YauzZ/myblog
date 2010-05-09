@@ -3,6 +3,12 @@
         Django example for myblog
     </title>
     <body>
-        clent ip : {{ip}} 
+        <ul>
+            {% for meta_name,meta_value in meta.items %}
+            <li style="background-color: {% cycle '#ddd' '#ccc' %}"> 
+                {{meta_name}}:{{meta_value|default:"No value"}}
+            </li>
+                {% endfor %}
+        </ul>
     </body>
 </html>
