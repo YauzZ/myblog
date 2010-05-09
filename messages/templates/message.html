@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> Leave your message here </title>
+    </head>
+
+    <body>
+        <h1>Messages</h1>
+
+        <table>
+            {% for message in messages %}
+            <tr>
+                <td>
+                    {% if message.homepage %}
+                    <a href="{{ message.homepage }}">{{ message.name }}</a>
+                    {% else %}
+                    {{ message.name }}
+                    {% endif %}
+                    ({{ message.email }})
+                    leave a message at {{ message.time }}
+                    from {{ message.ip }}:
+                </td>
+            </tr>
+            <tr>
+                <td>{{ message.content }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Leave your message</h2>
+        <form action="." method="POST">
+            <table>
+                {{ form.as_table }}
+            </table>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+
+    </body>
+</html>
+
