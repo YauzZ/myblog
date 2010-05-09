@@ -11,11 +11,14 @@ class Message(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     ip = models.CharField(max_length=20)
 
-    def __str__(self):
-        return 'Name: %s Email: %s HomePage: %s\n'\
-                'Time: %s IP: %s \n'\
-                'Title: %s\nContent: %s\n'\
-                % (self.name,self.email,self.homepage,
-                        self.time,self.ip,self.title,
-                        self.content);
+#    def __str__(self):
+#        return 'Name: %s Email: %s HomePage: %s\n'\
+#                'Time: %s IP: %s \n'\
+#                'Title: %s\nContent: %s\n'\
+#                % (self.name,self.email,self.homepage,
+#                        self.time,self.ip,self.title,
+#                        self.content);
+
+    def __unicode__(self):
+        return '%s: %s' % (self.name, self.title)
 
